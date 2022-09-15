@@ -15,14 +15,18 @@ env:
  firstName: Gerard
  lastName: Torres
  
-# Read User Defined Variables from environment
 jobs:
  windows-job:
    runs-on: windows-latest
    steps:
-     - name: Display env variables
+     - name: Display First Name variable
        run: echo "Hi ${{env.firstName}}"
-   
+     - name: Display Last Name Variable
+       run: echo "Hi ${{env.lastName}}"
+     - name: Display Job
+       run: echo "${{job}}}
+       env:
+        job: "Developer"
      
  ubuntu-job:
    runs-on: ubuntu-latest
