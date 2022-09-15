@@ -1,0 +1,33 @@
+# user defined variables
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+env:
+  firstName: Gerard
+  lastName: Torres
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  windows-job:
+    runs-on:
+      windows-latest
+    steps:
+      - run: echo 'Hi ${{firstName}}'
+      - run: echo 'Hi ${{lastName}}'
+      - run: echo 'Hi ${{firstName}} Having ${{job}}'
+      
+  ubuntu-job:
+    runs-on:
+      ubuntu-latest
+    steps:
+      - run: echo 'Hi ${{firstName}}'
+      - run: echo 'Hi ${{lastName}}'
+      - run: echo 'Hi ${{firstName}} Having ${{job}}'
