@@ -1,33 +1,31 @@
-# user defined variables
+ History
+ 1 contributor
+31 lines (22 sloc)  619 Bytes
 
-name: CI
+# To understand user defined variables
+
+name: User Defined Variable Demo
 
 # Controls when the workflow will run
-on:
+on: 
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 env:
-  firstName: Gerard
-  lastName: Torres
-
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+ firstName: Gerard
+ lastName: Torres
+ 
+# Read User Defined Variables from environment
 jobs:
-  windows-job:
-    runs-on:
-      windows-latest
-    steps:
-      - run: echo 'Hi ${{firstName}}'
-      - run: echo 'Hi ${{lastName}}'
-      - run: echo 'Hi ${{firstName}} Having ${{job}}'
-      
-  ubuntu-job:
-    runs-on:
-      ubuntu-latest
-    steps:
-      - run: echo 'Hi ${{firstName}}'
-      - run: echo 'Hi ${{lastName}}'
-      - run: echo 'Hi ${{firstName}} Having ${{job}}'
+ windows-job:
+   runs-on: windows-latest
+   steps:
+     - name: Display env variables
+       run: echo "Hi ${{env.firstName}}"
+   
+     
+ ubuntu-job:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Display env variables
+       run: echo "Hi ${{env.lastName}}"
