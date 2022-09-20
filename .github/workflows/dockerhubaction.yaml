@@ -71,7 +71,7 @@ jobs:
         - name: Run the image in a container
           uses: addnab/docker-run-action@v3
           with:
-            image: ${{secrets.DOCKERHUB_USERNAME}}/intelgitrepo2022:pdfappv1
+            image: ${{secrets.DOCKERHUB_USERNAME}}/intelsep2022:pdfapp
             run: |
               echo "runing the docker image"
               echo "Testing the nodejs  app endpoints"
